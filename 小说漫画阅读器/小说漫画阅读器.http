@@ -1,0 +1,6 @@
+@小说漫画阅读器_HostAddress = http://localhost:5204
+
+GET {{小说漫画阅读器_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
