@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\controllers\\ilogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:controllers\\ilogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\controllers\\mangadexcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:controllers\\mangadexcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\jsonclass\\chapterresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:jsonclass\\chapterresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\jsonclass\\chapterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:jsonclass\\chapterinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\jsonclass\\coverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:jsonclass\\coverresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\controllers\\ilogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:controllers\\ilogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\userconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3EDFE69-68AC-4C81-8F92-5F42EFA5CF53}|\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj|c:\\users\\lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\cancelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,45 +87,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
-              "RelativeDocumentMoniker": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
-              "RelativeToolTip": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-29T07:55:59.989Z",
+              "Title": "ChapterInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\JsonClass\\ChapterInfo.cs",
+              "RelativeDocumentMoniker": "JsonClass\\ChapterInfo.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\JsonClass\\ChapterInfo.cs",
+              "RelativeToolTip": "JsonClass\\ChapterInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T12:34:43.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChapterResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\JsonClass\\ChapterResponse.cs",
+              "RelativeDocumentMoniker": "JsonClass\\ChapterResponse.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\JsonClass\\ChapterResponse.cs",
+              "RelativeToolTip": "JsonClass\\ChapterResponse.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAADwvx8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T12:34:34.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CoverResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\JsonClass\\CoverResponse.cs",
+              "RelativeDocumentMoniker": "JsonClass\\CoverResponse.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\JsonClass\\CoverResponse.cs",
+              "RelativeToolTip": "JsonClass\\CoverResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T12:34:21.032Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MangadexController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\MangadexController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MangadexController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\MangadexController.cs",
+              "RelativeToolTip": "Controllers\\MangadexController.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAowMgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T12:32:51.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ILoginController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\ILoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\ILoginController.cs",
               "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\ILoginController.cs",
               "RelativeToolTip": "Controllers\\ILoginController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBYAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-29T07:36:47.189Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserConfig.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\UserConfig.cs",
-              "RelativeDocumentMoniker": "UserConfig.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\UserConfig.cs",
-              "RelativeToolTip": "UserConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T06:48:35.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\User.cs",
               "RelativeDocumentMoniker": "User.cs",
@@ -117,12 +159,11 @@
               "RelativeToolTip": "User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T06:46:33.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T06:46:33.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "MyDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\MyDbContext.cs",
               "RelativeDocumentMoniker": "MyDbContext.cs",
@@ -130,12 +171,61 @@
               "RelativeToolTip": "MyDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T06:30:49.346Z",
+              "WhenOpened": "2025-05-29T06:30:49.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAwBQAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T02:00:33.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\UserConfig.cs",
+              "RelativeDocumentMoniker": "UserConfig.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\UserConfig.cs",
+              "RelativeToolTip": "UserConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T06:48:35.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TestController.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\TestController.cs",
+              "RelativeToolTip": "Controllers\\TestController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T02:01:27.226Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
+              "RelativeDocumentMoniker": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
+              "RelativeToolTip": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-29T07:55:59.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "ChineseNumberConverter.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\ChineseNumberConverter.cs",
               "RelativeDocumentMoniker": "ChineseNumberConverter.cs",
@@ -147,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "CancelController.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\CancelController.cs",
               "RelativeDocumentMoniker": "CancelController.cs",
@@ -155,12 +245,11 @@
               "RelativeToolTip": "CancelController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T09:17:08.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-28T09:17:08.327Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "CancellationTokenPool.cs",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\CancellationTokenPool.cs",
               "RelativeDocumentMoniker": "CancellationTokenPool.cs",
@@ -172,33 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TestController.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\TestController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TestController.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Controllers\\TestController.cs",
-              "RelativeToolTip": "Controllers\\TestController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T02:01:27.226Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAwBQAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T02:00:33.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

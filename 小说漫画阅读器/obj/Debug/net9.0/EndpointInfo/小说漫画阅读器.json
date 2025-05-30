@@ -6,7 +6,7 @@
   },
   "paths": {
     "/api/Login/Login": {
-      "get": {
+      "post": {
         "tags": [
           "Login"
         ],
@@ -67,6 +67,257 @@
         }
       }
     },
+    "/api/Mangadex/GetManga": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "uuid"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mangadex/SearchMangaByTags": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetCoverImg": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetCommetnById": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetManga1": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoverResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoverResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CoverResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetFeed": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetChapterImg": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "chapterId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChapterInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Test/Get": {
       "get": {
         "tags": [
@@ -104,6 +355,202 @@
   },
   "components": {
     "schemas": {
+      "ChapterAttributes": {
+        "type": "object",
+        "properties": {
+          "volume": {
+            "type": "string",
+            "nullable": true
+          },
+          "chapter": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "translatedLanguage": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "readableAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "pages": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChapterData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/ChapterAttributes"
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChapterRelationship"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChapterImageInfo": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChapterInfo": {
+        "type": "object",
+        "properties": {
+          "baseUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "chapter": {
+            "$ref": "#/components/schemas/ChapterImageInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChapterRelationship": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChapterResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "nullable": true
+          },
+          "response": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChapterData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoverArtAttributes": {
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CoverResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MangaData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MangaData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "relationships": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Relationship"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Relationship": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "attributes": {
+            "$ref": "#/components/schemas/CoverArtAttributes"
+          }
+        },
+        "additionalProperties": false
+      },
       "UserData": {
         "type": "object",
         "properties": {

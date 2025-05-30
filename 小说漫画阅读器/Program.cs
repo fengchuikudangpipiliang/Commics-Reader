@@ -20,6 +20,12 @@ namespace 小说漫画阅读器
             builder.Services.AddScoped<TestController>();
             builder.Services.AddScoped<ILoginController,LoginController>();
 
+            builder.Services.AddHttpClient("MangaClient", client =>
+            {
+                client.BaseAddress = new Uri("https://api.mangadex.org");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0");
+            });
+
             builder.Services.AddCors(opt =>
             {
                 opt.AddDefaultPolicy(b =>
