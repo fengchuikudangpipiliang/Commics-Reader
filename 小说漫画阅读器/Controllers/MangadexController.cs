@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Text.Json;
@@ -26,9 +27,9 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="limit">一次请求的个数</param>
         /// <returns>匹配到的漫画 ID 列表</returns>
         [HttpGet]
-        [ResponseCache(Duration =20)]
+        [ResponseCache(Duration = 20)]
         //根据标题得到漫画id，模糊匹配
-        public async Task<ActionResult<List<Guid>>> GetMangaIdByTitle([FromQuery] string title, [FromQuery] int limit=10)
+        public async Task<ActionResult<List<Guid>>> GetMangaIdByTitle([FromQuery] string title, [FromQuery] int limit = 10)
         {
             if (string.IsNullOrWhiteSpace(title))
                 return BadRequest("title 不能为空");
@@ -60,7 +61,7 @@ namespace 小说漫画阅读器.Controllers
         /// <returns>匹配到的漫画 ID 列表</returns>
         [HttpGet]
         [ResponseCache(Duration = 20)]
-        public async Task<ActionResult<List<string>>> GetMangaByTags([FromQuery] List<string> includedTagNames, [FromQuery] List<string> excludedTagNames, [FromQuery] int limit=10)
+        public async Task<ActionResult<List<string>>> GetMangaByTags([FromQuery] List<string> includedTagNames, [FromQuery] List<string> excludedTagNames, [FromQuery] int limit = 10)
         {
             // Step 1: 标签名称
             //var includedTagNames = new[] { "Action", "Romance" };
@@ -167,30 +168,47 @@ namespace 小说漫画阅读器.Controllers
         /// 根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）
         /// </summary>
         /// <param name="title">想要搜索的漫画标题</param>
+        /// <param name="limit">sss</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
-        public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaWithRelationship([FromQuery] string title)
+        [ResponseCache(Duration = 60, VaryByQueryKeys = new[] { "title" })]
+        public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaWithRelationship([FromQuery] string title, [FromQuery] int limit = 10, [FromQuery]int offset=0)
         {
             if (string.IsNullOrWhiteSpace(title))
                 return BadRequest("title 不能为空");
             //string title = "Kanojyo to Himitsu to Koimoyou";
-            string url = $"manga?title={Uri.EscapeDataString(title)}&limit=100&includes[]=cover_art";
+            string url = $"manga?title={Uri.EscapeDataString(title)}&offset={offset}&limit={limit}&includes[]=cover_art&includes[]=author&includes[]=artist";
             //string url = $"manga?title={title}& limit=100";
             var response = await httpClient.GetAsync(url);
             if (!response.IsSuccessStatusCode)
             {
                 return StatusCode((int)response.StatusCode, "获取失败");
             }
+        
 
-            using var json1 = await response.Content.ReadAsStreamAsync();
+           using var json1 = await response.Content.ReadAsStreamAsync();
+
 
             var json = JsonSerializer.Deserialize<MangaSearchTitleResponse>(json1,new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
 
             if (json != null)
-            {
+           {
+                foreach (var rel in json.Data)
+                {
+                    foreach(var item in rel.Relationships)
+                    if (item.Type == "cover_art" && rel.Attributes != null)
+                    {
+                        var coverAttr = item.Attributes.Deserialize<CoverArtAttributes1>();
+                        // 用 coverAttr.FileName
+                    }
+                    else if ((rel.Type == "author" || rel.Type == "artist") && rel.Attributes != null)
+                    {
+                        var personAttr = item.Attributes.Deserialize<PersonAttributes>();
+                        // 用 personAttr.Name
+                    }
+                }
                 return Ok(json);
-            }
+           }
             return NotFound("Manga statistics not found");
         }
         /// <summary>
@@ -199,7 +217,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="uuid">漫画的uuid</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
+        [ResponseCache(Duration = 20, VaryByQueryKeys = new[] { "uuid" })]
         public async Task<ActionResult<ChapterResponse>> GetChapterInfoById([FromQuery]string uuid)
         {
             if (string.IsNullOrWhiteSpace(uuid))
@@ -234,7 +252,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="chapterId">章节的uuid</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
+        [ResponseCache(Duration = 20, VaryByQueryKeys = new[] { "chapterId" })]
         public async Task<ActionResult<string>> GetChapterImg([FromQuery]string chapterId)
         {
 
@@ -276,7 +294,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="chapterId">章节的uuid</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
+        [ResponseCache(Duration = 20, VaryByQueryKeys = new[] { "chapterId" })]
         public async Task GetChapterImgStream([FromQuery] string chapterId)
         {
 
@@ -334,18 +352,18 @@ namespace 小说漫画阅读器.Controllers
     public class MangaStatisticsResponse
     {
 
-        public Dictionary<string, MangaStat> statistics { get; set; }
+        public Dictionary<string, MangaStat>? statistics { get; set; }
     }
 
     public class MangaStat
     {
-        public Rating rating { get; set; }
-        public int follows { get; set; }
+        public Rating? rating { get; set; }
+        public int? follows { get; set; }
     }
 
     public class Rating
     {
-        public double average { get; set; }
-        public double bayesian { get; set; }
+        public double? average { get; set; }
+        public double? bayesian { get; set; }
     }
 }

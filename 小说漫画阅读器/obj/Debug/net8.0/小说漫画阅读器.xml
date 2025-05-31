@@ -36,11 +36,12 @@
             <param name="uuid">漫画的uuid</param>
             <returns></returns>
         </member>
-        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaWithRelationship(System.String)">
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaWithRelationship(System.String,System.Int32)">
             <summary>
             根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）
             </summary>
             <param name="title">想要搜索的漫画标题</param>
+            <param name="limit">sss</param>
             <returns></returns>
         </member>
         <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterInfoById(System.String)">
@@ -53,6 +54,13 @@
         <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterImg(System.String)">
             <summary>
             根据章节id得到对应的图片内容
+            </summary>
+            <param name="chapterId">章节的uuid</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterImgStream(System.String)">
+            <summary>
+            流式传输这个章节的原画质图片
             </summary>
             <param name="chapterId">章节的uuid</param>
             <returns></returns>
