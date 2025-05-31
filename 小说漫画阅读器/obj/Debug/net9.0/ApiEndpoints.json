@@ -122,32 +122,6 @@
   },
   {
     "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.MangadexController",
-    "Method": "GetManga",
-    "RelativePath": "api/Mangadex/GetManga",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "title",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.MangadexController",
     "Method": "GetManga1",
     "RelativePath": "api/Mangadex/GetManga1",
     "HttpMethod": "GET",
@@ -163,6 +137,32 @@
     "ReturnTypes": [
       {
         "Type": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.JsonClass.CoverResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.MangadexController",
+    "Method": "GetMangaId",
+    "RelativePath": "api/Mangadex/GetMangaId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "title",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

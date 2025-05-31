@@ -175,4 +175,9 @@ C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\ru\Microsoft
 C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\global.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\带有cover_art的数据.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\查询具体的章节id的章节数据.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\评分返回的.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\通过uuid查到的这本漫画的所有章节信息.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net8.0\小说漫画阅读器.xml
+C:\Users\Lenovo\source\repos\小说漫画阅读器\obj\Debug\net8.0\小说漫画阅读器.xml

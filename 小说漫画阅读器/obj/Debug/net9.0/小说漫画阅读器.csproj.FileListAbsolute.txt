@@ -171,3 +171,9 @@ C:\Users\Lenovo\source\repos\小说漫画阅读器\obj\Debug\net9.0\小说漫画
 C:\Users\Lenovo\source\repos\小说漫画阅读器\obj\Debug\net9.0\小说漫画阅读器.genruntimeconfig.cache
 C:\Users\Lenovo\source\repos\小说漫画阅读器\obj\Debug\net9.0\ref\小说漫画阅读器.dll
 C:\Users\Lenovo\source\repos\小说漫画阅读器\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net9.0\带有cover_art的数据.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net9.0\查询具体的章节id的章节数据.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net9.0\评分返回的.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net9.0\通过uuid查到的这本漫画的所有章节信息.json
+C:\Users\Lenovo\source\repos\小说漫画阅读器\bin\Debug\net9.0\小说漫画阅读器.xml
+C:\Users\Lenovo\source\repos\小说漫画阅读器\obj\Debug\net9.0\小说漫画阅读器.xml

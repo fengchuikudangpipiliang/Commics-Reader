@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>小说漫画阅读器</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:小说漫画阅读器.Controllers.MangadexController.GetMangaId(System.String)" -->
+        <member name="T:小说漫画阅读器.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

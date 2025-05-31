@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>小说漫画阅读器</name>
+    </assembly>
+    <members>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaIdByTitle(System.String,System.Int32)">
+            <summary>
+            根据漫画标题模糊搜索 ID
+            </summary>
+            <param name="title">漫画标题关键字</param>
+            <param name="limit">一次请求的个数</param>
+            <returns>匹配到的漫画 ID 列表</returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaByTags(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            根据标签得到匹配的漫画uuid
+            </summary>
+            <param name="includedTagNames">要包括的标签</param>
+            <param name="excludedTagNames">要去除的标签</param>
+             <param name="limit">一次请求的个数</param>
+            <returns>匹配到的漫画 ID 列表</returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetCoverImg(System.String,System.String)">
+            <summary>
+            得到漫画封面的图片的方法,uuid+文件名,可以在.jpg前面加.256或者.512
+            </summary>
+            <param name="uuid">漫画的Uuid</param>
+            <param name="fileName">漫画对应的封面文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetCommetnById(System.String)">
+            <summary>
+            根据漫画的uuid得到漫画的评分
+            </summary>
+            <param name="uuid">漫画的uuid</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaWithRelationship(System.String)">
+            <summary>
+            根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）
+            </summary>
+            <param name="title">想要搜索的漫画标题</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterInfoById(System.String)">
+            <summary>
+            根据uuid来查找对应的所有章节信息，里面有最基本各个的章节id,volume是卷，chapter是章
+            </summary>
+            <param name="uuid">漫画的uuid</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterImg(System.String)">
+            <summary>
+            根据章节id得到对应的图片内容
+            </summary>
+            <param name="chapterId">章节的uuid</param>
+            <returns></returns>
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.init">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

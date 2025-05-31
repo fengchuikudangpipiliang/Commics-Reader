@@ -1,4 +1,5 @@
 
+using System.Reflection;
 using 小说漫画阅读器.Controllers;
 
 namespace 小说漫画阅读器
@@ -26,6 +27,15 @@ namespace 小说漫画阅读器
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0");
             });
 
+ 
+
+
+            builder.Services.AddSwaggerGen(options =>
+            {
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+            });
+
             builder.Services.AddCors(opt =>
             {
                 opt.AddDefaultPolicy(b =>
@@ -44,9 +54,13 @@ namespace 小说漫画阅读器
                 app.UseSwaggerUI();
             }
             app.UseCors();
+            //启用内存缓存必须在UseCors以后，MapControllers之前
+            app.UseResponseCaching();
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            
 
 
             app.MapControllers();
