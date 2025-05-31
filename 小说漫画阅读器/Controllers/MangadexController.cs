@@ -60,7 +60,6 @@ namespace 小说漫画阅读器.Controllers
         ///  <param name="limit">一次请求的个数</param>
         /// <returns>匹配到的漫画 ID 列表</returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
         public async Task<ActionResult<List<string>>> GetMangaByTags([FromQuery] List<string> includedTagNames, [FromQuery] List<string> excludedTagNames, [FromQuery] int limit = 10)
         {
             // Step 1: 标签名称
@@ -122,7 +121,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="fileName">漫画对应的封面文件名</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
+        [ResponseCache(Duration = 20,VaryByQueryKeys = new[] { "uuid","fileName" })]
         public async Task<ActionResult> GetCoverImg([FromQuery] string uuid, [FromQuery] string fileName)
         {
             //fileName = "0f411c81-14a6-4d59-9e57-869d839c4972.jpg";
@@ -144,7 +143,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="uuid">漫画的uuid</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 20)]
+        [ResponseCache(Duration = 20,VaryByQueryKeys = new[] { "uuid" })]
         public async Task<ActionResult<MangaStatisticsResponse>> GetCommetnById([FromQuery] string uuid)
         {
             //uuid = "0301208d-258a-444a-8ef7-66e433d801b1";
@@ -171,7 +170,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="limit">sss</param>
         /// <returns></returns>
         [HttpGet]
-        [ResponseCache(Duration = 60, VaryByQueryKeys = new[] { "title" })]
+        [ResponseCache(Duration = 60, VaryByQueryKeys = new[] { "title","limit","offset"})]
         public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaWithRelationship([FromQuery] string title, [FromQuery] int limit = 10, [FromQuery]int offset=0)
         {
             if (string.IsNullOrWhiteSpace(title))

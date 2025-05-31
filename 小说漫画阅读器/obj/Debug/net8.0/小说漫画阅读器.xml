@@ -36,7 +36,7 @@
             <param name="uuid">漫画的uuid</param>
             <returns></returns>
         </member>
-        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaWithRelationship(System.String,System.Int32)">
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaWithRelationship(System.String,System.Int32,System.Int32)">
             <summary>
             根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）
             </summary>
