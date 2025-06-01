@@ -24,5 +24,9 @@ namespace 小说漫画阅读器
             //这里有可能有问题
             _tokens[key] = new CancellationTokenSource(); // 设置新的
         }
+        public bool Contains(string key)
+        {
+            return _tokens.ContainsKey(key);
+        }
     }
 }

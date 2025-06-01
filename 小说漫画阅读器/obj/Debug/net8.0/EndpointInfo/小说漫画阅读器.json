@@ -87,6 +87,27 @@
         }
       }
     },
+    "/api/Manager/CancelAction": {
+      "post": {
+        "tags": [
+          "Manager"
+        ],
+        "parameters": [
+          {
+            "name": "action",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Mangadex/GetCoverImg": {
       "get": {
         "tags": [

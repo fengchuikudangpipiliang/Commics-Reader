@@ -42,6 +42,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.ManagerController",
+    "Method": "CancelAction",
+    "RelativePath": "api/Manager/CancelAction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "action",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.MangadexController",
     "Method": "GetChapterImg",
     "RelativePath": "api/Mangadex/GetChapterImg",

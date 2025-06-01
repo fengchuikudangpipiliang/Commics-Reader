@@ -15,10 +15,11 @@ namespace 小说漫画阅读器.Controllers
     public class MangadexController : ControllerBase
     {
         private readonly HttpClient httpClient;                                  
-
-        public MangadexController(IHttpClientFactory factory)
+        private readonly CancellationTokenPool cancellationTokenPool;
+        public MangadexController(IHttpClientFactory factory, CancellationTokenPool cancellationTokenPool)
         {
             httpClient = factory.CreateClient("MangaClient");
+            this.cancellationTokenPool = cancellationTokenPool;
         }
 
         /// <summary>
@@ -156,7 +157,7 @@ namespace 小说漫画阅读器.Controllers
         [ResponseCache(Duration = 20, VaryByQueryKeys = new[] { "chapterId" })]
         public async Task GetChapterImgStream([FromQuery] string chapterId)
         {
-
+            CancellationToken token= cancellationTokenPool.GetToken("/api/Mangadex/GetChapterImgStream");
             if (string.IsNullOrWhiteSpace(chapterId))
             {
                 Response.StatusCode = 400;
@@ -189,8 +190,15 @@ namespace 小说漫画阅读器.Controllers
             Response.ContentType = "text/event-stream"; // 一行一个 JSON 字符串
             var writer = new StreamWriter(Response.Body);
 
+            int i = 1;
             foreach (var fileName in chapterInfo.chapter.data)
             {
+                Console.WriteLine($"传{i++}次");
+                if (token.IsCancellationRequested)
+                {
+                    Console.WriteLine("撤销陈工");
+                    break;
+                }
                 string imageUrl = $"{baseUrl}/data/{hash}/{fileName}";
                 var imgRes = await httpClient.GetAsync(imageUrl);
 
