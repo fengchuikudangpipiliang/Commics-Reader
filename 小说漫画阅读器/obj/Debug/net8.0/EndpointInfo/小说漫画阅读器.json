@@ -5,6 +5,55 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Deepseek/GetMsg": {
+      "get": {
+        "tags": [
+          "Deepseek"
+        ],
+        "summary": "得到deepseek的回复",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "用户的话",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "prompt",
+            "in": "query",
+            "description": "提示词",
+            "schema": {
+              "type": "string",
+              "default": "你是本漫画网站的 Q 萌看板娘“小绘”（18px 小人形象）• 始终用活泼可爱的语气回答，偶尔加上颜文字 (≧▽≦)• 回复长度保持 1～2 句，结尾附 1 个相关 emoji• 不讨论政治/敏感内容；遇到不合规问题礼貌拒绝喵"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Login/Login": {
       "post": {
         "tags": [

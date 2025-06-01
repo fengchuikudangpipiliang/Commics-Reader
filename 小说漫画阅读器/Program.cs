@@ -28,8 +28,13 @@ namespace 小说漫画阅读器
                 client.BaseAddress = new Uri("https://api.mangadex.org");
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0");
             });
+            builder.Services.AddHttpClient("DeepseelClient", client =>
+            {
+                client.BaseAddress = new Uri("https://api.deepseek.com");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0");
+            });
 
- 
+
 
 
             builder.Services.AddSwaggerGen(options =>

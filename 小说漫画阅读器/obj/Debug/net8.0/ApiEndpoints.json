@@ -1,5 +1,36 @@
 [
   {
+    "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.DeepseekController",
+    "Method": "GetMsg",
+    "RelativePath": "api/Deepseek/GetMsg",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "prompt",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.LoginController",
     "Method": "Login",
     "RelativePath": "api/Login/Login",

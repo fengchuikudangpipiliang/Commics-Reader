@@ -193,22 +193,15 @@ namespace 小说漫画阅读器.Controllers
             int i = 1;
             foreach (var fileName in chapterInfo.chapter.data)
             {
-                Console.WriteLine($"传{i++}次");
                 if (token.IsCancellationRequested)
                 {
                     Console.WriteLine("撤销陈工");
                     break;
                 }
                 string imageUrl = $"{baseUrl}/data/{hash}/{fileName}";
-                var imgRes = await httpClient.GetAsync(imageUrl);
-
-                if (!imgRes.IsSuccessStatusCode) continue;
-
-                var bytes = await imgRes.Content.ReadAsByteArrayAsync();
-                string base64 = $"data:image/jpeg;base64,{Convert.ToBase64String(bytes)}";
-
+             
                 // SSE 格式，每个事件以 "data:" 开头，"\n\n" 结尾
-                await writer.WriteAsync($"data: {base64}\n\n");
+                await writer.WriteAsync($"data: {imageUrl}\n\n");
                 await writer.FlushAsync(); // 推送这一张图片
             }
             await writer.WriteAsync("event: done\n");
@@ -272,36 +265,7 @@ namespace 小说漫画阅读器.Controllers
 
             MangaSearchQuery query = new MangaSearchQuery() { Title=data1,Limit=1};
             return  await GetMangaByOptions(query);
-            //string baseUrl2 = $"https://api.mangadex.org/manga/{data1}?includes[]=cover_art&includes[]=author&includes[]=artist";
-            //var response1 = await httpClient.GetAsync(baseUrl2);
-            //if (!response1.IsSuccessStatusCode)
-            //{
-            //    return StatusCode((int)response1.StatusCode, "获取失败");
-            //}
-            //using var json11 = await response1.Content.ReadAsStreamAsync();
-
-
-            //var json2 = JsonSerializer.Deserialize<MangaSearchTitleResponse>(json11, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-
-            //if (json2 != null)
-            //{
-            //    foreach (var rel in json2.Data)
-            //    {
-            //        foreach (var item in rel.Relationships)
-            //            if (item.Type == "cover_art" && item.Attributes != null)
-            //            {
-            //                var coverAttr = item.Attributes.Deserialize<CoverArtAttributes1>();
-            //                // 用 coverAttr.FileName
-            //            }
-            //            else if ((item.Type == "author" || item.Type == "artist") && item.Attributes != null)
-            //            {
-            //                var personAttr = item.Attributes.Deserialize<PersonAttributes>();
-            //                // 用 personAttr.Name
-            //            }
-            //    }
-            //    return Ok(json2);
-            //}
-            //return NotFound("Manga statistics not found");
+           
         }
     }
     public class MangaSearchQuery

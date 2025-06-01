@@ -4,6 +4,14 @@
         <name>小说漫画阅读器</name>
     </assembly>
     <members>
+        <member name="M:小说漫画阅读器.Controllers.DeepseekController.GetMsg(System.String,System.String)">
+            <summary>
+            得到deepseek的回复
+            </summary>
+            <param name="query">用户的话</param>
+            <param name="prompt">提示词</param>
+            <returns></returns>
+        </member>
         <member name="M:小说漫画阅读器.Controllers.MangadexController.GetCoverImg(System.String,System.String)">
             <summary>
             得到漫画封面的图片的方法,uuid+文件名,可以在.jpg前面加.256或者.512
