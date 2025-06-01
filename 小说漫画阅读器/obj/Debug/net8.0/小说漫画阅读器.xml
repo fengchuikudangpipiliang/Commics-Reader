@@ -4,23 +4,6 @@
         <name>小说漫画阅读器</name>
     </assembly>
     <members>
-        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaIdByTitle(System.String,System.Int32)">
-            <summary>
-            根据漫画标题模糊搜索 ID
-            </summary>
-            <param name="title">漫画标题关键字</param>
-            <param name="limit">一次请求的个数</param>
-            <returns>匹配到的漫画 ID 列表</returns>
-        </member>
-        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaByTags(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Int32)">
-            <summary>
-            根据标签得到匹配的漫画uuid
-            </summary>
-            <param name="includedTagNames">要包括的标签</param>
-            <param name="excludedTagNames">要去除的标签</param>
-             <param name="limit">一次请求的个数</param>
-            <returns>匹配到的漫画 ID 列表</returns>
-        </member>
         <member name="M:小说漫画阅读器.Controllers.MangadexController.GetCoverImg(System.String,System.String)">
             <summary>
             得到漫画封面的图片的方法,uuid+文件名,可以在.jpg前面加.256或者.512
@@ -34,14 +17,6 @@
             根据漫画的uuid得到漫画的评分
             </summary>
             <param name="uuid">漫画的uuid</param>
-            <returns></returns>
-        </member>
-        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaWithRelationship(System.String,System.Int32,System.Int32)">
-            <summary>
-            根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）
-            </summary>
-            <param name="title">想要搜索的漫画标题</param>
-            <param name="limit">sss</param>
             <returns></returns>
         </member>
         <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterInfoById(System.String)">
@@ -65,6 +40,28 @@
             <param name="chapterId">章节的uuid</param>
             <returns></returns>
         </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaByOptions(小说漫画阅读器.Controllers.MangaSearchQuery)">
+            <summary>
+            终极版全能搜索，满足条件搜索
+            </summary>
+            <param name="option">一个条件参数的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.UsersLoveController.GetUsersLove(System.Int32)">
+            <summary>
+            发送用户id,得到用户喜欢的漫画的uuid
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.UsersLoveController.AddUsersLove(System.String,System.Int32)">
+            <summary>
+            添加用户喜欢的漫画的uuid
+            </summary>
+            <param name="uuid"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:小说漫画阅读器.Migrations.init">
             <inheritdoc />
         </member>
@@ -75,6 +72,78 @@
             <inheritdoc />
         </member>
         <member name="M:小说漫画阅读器.Migrations.init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.add_mangawithuser">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_mangawithuser.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_mangawithuser.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_mangawithuser.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.add_mangachapterr">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_mangachapterr.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_mangachapterr.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_mangachapterr.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.add_imgfile">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_imgfile.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_imgfile.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_imgfile.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.add_chatterid">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_chatterid.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_chatterid.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_chatterid.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.drop_id">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.drop_id.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.drop_id.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.drop_id.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:小说漫画阅读器.Migrations.add_useslove">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_useslove.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_useslove.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:小说漫画阅读器.Migrations.add_useslove.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

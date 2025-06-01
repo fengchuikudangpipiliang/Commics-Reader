@@ -18,6 +18,7 @@ namespace 小说漫画阅读器
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddSingleton<CancellationTokenPool>();
+            builder.Services.AddSingleton<MangaTagDic>();
             builder.Services.AddScoped<TestController>();
             builder.Services.AddScoped<ILoginController,LoginController>();
 

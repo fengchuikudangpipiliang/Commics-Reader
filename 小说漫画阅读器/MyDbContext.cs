@@ -7,6 +7,10 @@ namespace 小说漫画阅读器
         private readonly ILoggerFactory _loggerFactory = LoggerFactory.Create(log => log.AddConsole());
 
         public DbSet<User> Users { get; set; }
+        public DbSet<MangaWithUser> MangaWithsUsers {  get; set; }
+        public DbSet<MangaChapter> mangaChapters { get; set; }
+        public DbSet<ImgFile> ImgFiles { get; set; }
+        public DbSet<UsersLove> UsersLoves { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

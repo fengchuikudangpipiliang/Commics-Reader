@@ -1,119 +1,26 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Text.Json;
 using 小说漫画阅读器.JsonClass;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
+using static System.Net.WebRequestMethods;
 namespace 小说漫画阅读器.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class MangadexController : ControllerBase
     {
-        private readonly HttpClient httpClient;
-
+        private readonly HttpClient httpClient;                                  
 
         public MangadexController(IHttpClientFactory factory)
         {
             httpClient = factory.CreateClient("MangaClient");
         }
 
-        /// <summary>
-        /// 根据漫画标题模糊搜索 ID
-        /// </summary>
-        /// <param name="title">漫画标题关键字</param>
-        /// <param name="limit">一次请求的个数</param>
-        /// <returns>匹配到的漫画 ID 列表</returns>
-        [HttpGet]
-        [ResponseCache(Duration = 20)]
-        //根据标题得到漫画id，模糊匹配
-        public async Task<ActionResult<List<Guid>>> GetMangaIdByTitle([FromQuery] string title, [FromQuery] int limit = 10)
-        {
-            if (string.IsNullOrWhiteSpace(title))
-                return BadRequest("title 不能为空");
-            //string title = "Kanojyo to Himitsu to Koimoyou";
-            string url = $"manga?title={Uri.EscapeDataString(title)}&limit={limit}";
-            //string url = $"manga?title={title}& limit=100";
-            var response = await httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-
-            string json = await response.Content.ReadAsStringAsync();
-
-            using JsonDocument doc = JsonDocument.Parse(json);
-
-            var ids = doc.RootElement.GetProperty("data")
-                                 .EnumerateArray()
-                                 .Select(m => m.GetProperty("id").GetGuid()) // GetGuid() 把 UUID 字符串转 Guid
-                                 .ToList();
-
-            return StatusCode(200, ids); // 会自动序列化为 JSON
-        }
-
-
-        /// <summary>
-        /// 根据标签得到匹配的漫画uuid
-        /// </summary>
-        /// <param name="includedTagNames">要包括的标签</param>
-        /// <param name="excludedTagNames">要去除的标签</param>
-        ///  <param name="limit">一次请求的个数</param>
-        /// <returns>匹配到的漫画 ID 列表</returns>
-        [HttpGet]
-        public async Task<ActionResult<List<string>>> GetMangaByTags([FromQuery] List<string> includedTagNames, [FromQuery] List<string> excludedTagNames, [FromQuery] int limit = 10)
-        {
-            // Step 1: 标签名称
-            //var includedTagNames = new[] { "Action", "Romance" };
-            //var excludedTagNames = new[] { "Harem" };
-
-            // Step 2: 获取所有标签
-            var tagResp = await httpClient.GetAsync("manga/tag");
-            tagResp.EnsureSuccessStatusCode();
-            var tagJson = await tagResp.Content.ReadAsStringAsync();
-
-
-            using var tagDoc = JsonDocument.Parse(tagJson);
-            var tagList = tagDoc.RootElement.GetProperty("data").EnumerateArray();
-
-            // Step 3: 找到 UUID
-            var includedTagIDs = tagList
-                .Where(tag => includedTagNames.Contains(tag.GetProperty("attributes").GetProperty("name").GetProperty("en").GetString()))
-                .Select(tag => tag.GetProperty("id").GetString())
-                .ToList();
-
-            var excludedTagIDs = tagList
-                .Where(tag => excludedTagNames.Contains(tag.GetProperty("attributes").GetProperty("name").GetProperty("en").GetString()))
-                .Select(tag => tag.GetProperty("id").GetString())
-                .ToList();
-
-            // Step 4: 构造查询字符串
-            var queryParams = new List<string>();
-
-            foreach (var id in includedTagIDs)
-                queryParams.Add($"includedTags[]={id}");
-
-            foreach (var id in excludedTagIDs)
-                queryParams.Add($"excludedTags[]={id}");
-
-            // limit 可选
-            queryParams.Add($"limit={limit}");
-
-            var queryString = string.Join("&", queryParams);
-            var searchUrl = $"manga?{queryString}";
-
-            // Step 5: 搜索漫画
-            var searchResp = await httpClient.GetAsync(searchUrl);
-            searchResp.EnsureSuccessStatusCode();
-            var searchJson = await searchResp.Content.ReadAsStringAsync();
-
-            // Step 6: 取 manga ID 列表
-            using var searchDoc = JsonDocument.Parse(searchJson);
-            var mangas = searchDoc.RootElement.GetProperty("data").EnumerateArray()
-                .Select(m => m.GetProperty("id").GetString())
-                .ToList();
-
-            return mangas;
-        }
         /// <summary>
         /// 得到漫画封面的图片的方法,uuid+文件名,可以在.jpg前面加.256或者.512
         /// </summary>
@@ -161,53 +68,6 @@ namespace 小说漫画阅读器.Controllers
                 return Ok(json);
             }
 
-            return NotFound("Manga statistics not found");
-        }
-        /// <summary>
-        /// 根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）
-        /// </summary>
-        /// <param name="title">想要搜索的漫画标题</param>
-        /// <param name="limit">sss</param>
-        /// <returns></returns>
-        [HttpGet]
-        [ResponseCache(Duration = 60, VaryByQueryKeys = new[] { "title","limit","offset"})]
-        public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaWithRelationship([FromQuery] string title, [FromQuery] int limit = 10, [FromQuery]int offset=0)
-        {
-            if (string.IsNullOrWhiteSpace(title))
-                return BadRequest("title 不能为空");
-            //string title = "Kanojyo to Himitsu to Koimoyou";
-            string url = $"manga?title={Uri.EscapeDataString(title)}&offset={offset}&limit={limit}&includes[]=cover_art&includes[]=author&includes[]=artist";
-            //string url = $"manga?title={title}& limit=100";
-            var response = await httpClient.GetAsync(url);
-            if (!response.IsSuccessStatusCode)
-            {
-                return StatusCode((int)response.StatusCode, "获取失败");
-            }
-        
-
-           using var json1 = await response.Content.ReadAsStreamAsync();
-
-
-            var json = JsonSerializer.Deserialize<MangaSearchTitleResponse>(json1,new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
-
-            if (json != null)
-           {
-                foreach (var rel in json.Data)
-                {
-                    foreach(var item in rel.Relationships)
-                    if (item.Type == "cover_art" && rel.Attributes != null)
-                    {
-                        var coverAttr = item.Attributes.Deserialize<CoverArtAttributes1>();
-                        // 用 coverAttr.FileName
-                    }
-                    else if ((rel.Type == "author" || rel.Type == "artist") && rel.Attributes != null)
-                    {
-                        var personAttr = item.Attributes.Deserialize<PersonAttributes>();
-                        // 用 personAttr.Name
-                    }
-                }
-                return Ok(json);
-           }
             return NotFound("Manga statistics not found");
         }
         /// <summary>
@@ -347,7 +207,110 @@ namespace 小说漫画阅读器.Controllers
             await writer.WriteAsync("data: complete\n\n");
             await writer.FlushAsync();
         }
+        /// <summary>
+        /// 终极版全能搜索，满足条件搜索
+        /// </summary>
+        /// <param name="option">一个条件参数的对象</param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaByOptions([FromQuery] MangaSearchQuery option)
+        {
+            var baseUrl = "https://api.mangadex.org/manga";
+            string query=option.GetQueryString();
+            baseUrl += "?includes[]=cover_art&includes[]=author&includes[]=artist&"+ query;
+
+            var response = await httpClient.GetAsync(baseUrl);
+            if (!response.IsSuccessStatusCode)
+            {
+                return StatusCode((int)response.StatusCode, "获取失败");
+            }
+            using var json1 = await response.Content.ReadAsStreamAsync();
+
+
+            var json = JsonSerializer.Deserialize<MangaSearchTitleResponse>(json1, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+            if (json != null)
+            {
+                foreach (var rel in json.Data)
+                {
+                    foreach (var item in rel.Relationships)
+                        if (item.Type == "cover_art" && item.Attributes != null)
+                        {
+                            var coverAttr = item.Attributes.Deserialize<CoverArtAttributes1>();
+                            // 用 coverAttr.FileName
+                        }
+                        else if ((item.Type == "author" || item.Type == "artist") && item.Attributes != null)
+                        {
+                            var personAttr = item.Attributes.Deserialize<PersonAttributes>();
+                            // 用 personAttr.Name
+                        }
+                }
+                return Ok(json);
+            }
+            return NotFound("Manga statistics not found");
+        }
+        [HttpGet]
+        public async Task<ActionResult<MangaSearchTitleResponse>>  GetRandomManga()
+        {
+            string baseUrl1= "https://api.mangadex.org/manga/random?includes[]=cover_art&includes[]=author&includes[]=artist";
+            var response = await httpClient.GetAsync(baseUrl1);
+            if (!response.IsSuccessStatusCode)
+            {
+                return StatusCode((int)response.StatusCode, "获取失败");
+            }
+            var json1 = await response.Content.ReadAsStringAsync();
+            JsonDocument json=JsonDocument.Parse(json1);
+            var data1 = json.RootElement.GetProperty("data").GetProperty("attributes").GetProperty("title").GetProperty("en").GetString();
+
+            MangaSearchQuery query = new MangaSearchQuery() { Title=data1,Limit=1};
+            return  await GetMangaByOptions(query);
+            //string baseUrl2 = $"https://api.mangadex.org/manga/{data1}?includes[]=cover_art&includes[]=author&includes[]=artist";
+            //var response1 = await httpClient.GetAsync(baseUrl2);
+            //if (!response1.IsSuccessStatusCode)
+            //{
+            //    return StatusCode((int)response1.StatusCode, "获取失败");
+            //}
+            //using var json11 = await response1.Content.ReadAsStreamAsync();
+
+
+            //var json2 = JsonSerializer.Deserialize<MangaSearchTitleResponse>(json11, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+
+            //if (json2 != null)
+            //{
+            //    foreach (var rel in json2.Data)
+            //    {
+            //        foreach (var item in rel.Relationships)
+            //            if (item.Type == "cover_art" && item.Attributes != null)
+            //            {
+            //                var coverAttr = item.Attributes.Deserialize<CoverArtAttributes1>();
+            //                // 用 coverAttr.FileName
+            //            }
+            //            else if ((item.Type == "author" || item.Type == "artist") && item.Attributes != null)
+            //            {
+            //                var personAttr = item.Attributes.Deserialize<PersonAttributes>();
+            //                // 用 personAttr.Name
+            //            }
+            //    }
+            //    return Ok(json2);
+            //}
+            //return NotFound("Manga statistics not found");
+        }
     }
+    public class MangaSearchQuery
+    {
+        public string? Title { get; set; }
+        public string? OriginalLanguage { get; set; }
+        public List<string>? AvailableTranslatedLanguages { get; set; }
+        public string? Status { get; set; }
+        public List<string>? ContentRatings { get; set; }
+        public int? Year {  get; set; }
+        public int? Limit { get; set; }
+        public int? Offset { get; set; }
+        public string? Order { get; set; } // e.g. order["createdAt"] = "desc"
+        public List<string>? IncludedTags { get; set; }
+        public List<string>? ExcludedTags { get; set; }
+    }
+
     public class MangaStatisticsResponse
     {
 

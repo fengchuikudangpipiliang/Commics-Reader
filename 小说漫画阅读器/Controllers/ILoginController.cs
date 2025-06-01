@@ -8,7 +8,7 @@ namespace 小说漫画阅读器.Controllers
         [HttpPost]
         public IActionResult Rejister(UserData userData);
         [HttpGet]
-        public IActionResult Login(UserData userData);
+        public ActionResult<int> Login(UserData userData);
     }
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -16,14 +16,14 @@ namespace 小说漫画阅读器.Controllers
     {
 
         [HttpPost]
-        public IActionResult Login(UserData userData)
+        public ActionResult<int> Login(UserData userData)
         {
             using MyDbContext db = new MyDbContext();
             var data = db.Users.SingleOrDefault(e => e.Name == userData.UserName);
             if(data == null){
                 return StatusCode(2,"不存在当前用户");
             }
-            return Ok("登录成功");
+            return Ok(data.Id);
         }
         [HttpPost]
         public IActionResult Rejister(UserData userData)
@@ -39,6 +39,7 @@ namespace 小说漫画阅读器.Controllers
             db.SaveChanges();
             return StatusCode(200,"注册成功");
         }
+ 
     }
     public record UserData(string UserName,string Password);
 }

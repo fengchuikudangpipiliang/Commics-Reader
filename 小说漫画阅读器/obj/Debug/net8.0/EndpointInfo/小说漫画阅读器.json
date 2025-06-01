@@ -31,7 +31,27 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
           }
         }
       }
@@ -63,141 +83,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Mangadex/GetMangaIdByTitle": {
-      "get": {
-        "tags": [
-          "Mangadex"
-        ],
-        "summary": "根据漫画标题模糊搜索 ID",
-        "parameters": [
-          {
-            "name": "title",
-            "in": "query",
-            "description": "漫画标题关键字",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "一次请求的个数",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "uuid"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "uuid"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "uuid"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Mangadex/GetMangaByTags": {
-      "get": {
-        "tags": [
-          "Mangadex"
-        ],
-        "summary": "根据标签得到匹配的漫画uuid",
-        "parameters": [
-          {
-            "name": "includedTagNames",
-            "in": "query",
-            "description": "要包括的标签",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "excludedTagNames",
-            "in": "query",
-            "description": "要去除的标签",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "一次请求的个数",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -266,46 +151,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/MangaStatisticsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Mangadex/GetMangaWithRelationship": {
-      "get": {
-        "tags": [
-          "Mangadex"
-        ],
-        "summary": "根据标题得到漫画的的所有信息（是漫画的所有信息加封面信息）",
-        "parameters": [
-          {
-            "name": "title",
-            "in": "query",
-            "description": "想要搜索的漫画标题",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
                 }
               }
             }
@@ -398,10 +243,12 @@
         "tags": [
           "Mangadex"
         ],
+        "summary": "流式传输这个章节的原画质图片",
         "parameters": [
           {
             "name": "chapterId",
             "in": "query",
+            "description": "章节的uuid",
             "schema": {
               "type": "string"
             }
@@ -410,6 +257,159 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetMangaByOptions": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "summary": "终极版全能搜索，满足条件搜索",
+        "parameters": [
+          {
+            "name": "Title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OriginalLanguage",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "AvailableTranslatedLanguages",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ContentRatings",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "Year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Order",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IncludedTags",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "ExcludedTags",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Mangadex/GetRandomManga": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -434,6 +434,117 @@
         "parameters": [
           {
             "name": "chapter",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UsersLove/GetUsersLove": {
+      "get": {
+        "tags": [
+          "UsersLove"
+        ],
+        "summary": "发送用户id,得到用户喜欢的漫画的uuid",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UsersLove/AddUsersLove": {
+      "post": {
+        "tags": [
+          "UsersLove"
+        ],
+        "summary": "添加用户喜欢的漫画的uuid",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UsersLove/SubUsersLove": {
+      "post": {
+        "tags": [
+          "UsersLove"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -476,27 +587,33 @@
           },
           "publishAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "readableAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "createdAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "updatedAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "pages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "version": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -560,36 +677,26 @@
         },
         "additionalProperties": false
       },
-      "CoverArtAttributes1": {
+      "JsonNode": {
         "type": "object",
         "properties": {
-          "description": {
-            "type": "string",
-            "nullable": true
+          "options": {
+            "$ref": "#/components/schemas/JsonNodeOptions"
           },
-          "volume": {
-            "type": "string",
-            "nullable": true
+          "parent": {
+            "$ref": "#/components/schemas/JsonNode"
           },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "locale": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "version": {
-            "type": "integer",
-            "format": "int32"
+          "root": {
+            "$ref": "#/components/schemas/JsonNode"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonNodeOptions": {
+        "type": "object",
+        "properties": {
+          "propertyNameCaseInsensitive": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -618,7 +725,8 @@
             "nullable": true
           },
           "isLocked": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           },
           "links": {
             "type": "object",
@@ -649,7 +757,8 @@
           },
           "year": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "contentRating": {
             "type": "string",
@@ -667,19 +776,23 @@
             "nullable": true
           },
           "chapterNumbersResetOnNewVolume": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true
           },
           "createdAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "updatedAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "version": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "availableTranslatedLanguages": {
             "type": "array",
@@ -735,7 +848,11 @@
             "nullable": true
           },
           "attributes": {
-            "$ref": "#/components/schemas/CoverArtAttributes1"
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonNode"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -760,15 +877,18 @@
           },
           "limit": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "offset": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "total": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -781,7 +901,8 @@
           },
           "follows": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -821,11 +942,13 @@
         "properties": {
           "average": {
             "type": "number",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           },
           "bayesian": {
             "type": "number",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -853,7 +976,8 @@
           },
           "version": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false
