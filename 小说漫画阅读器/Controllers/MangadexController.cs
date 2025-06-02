@@ -78,11 +78,11 @@ namespace 小说漫画阅读器.Controllers
         /// <returns></returns>
         [HttpGet]
         [ResponseCache(Duration = 20, VaryByQueryKeys = new[] { "uuid" })]
-        public async Task<ActionResult<ChapterResponse>> GetChapterInfoById([FromQuery]string uuid)
+        public async Task<ActionResult<ChapterResponse>> GetChapterInfoById([FromQuery]string uuid, [FromQuery] int limit, [FromQuery] int offset)
         {
             if (string.IsNullOrWhiteSpace(uuid))
                 return BadRequest("uuid 不能为空");
-            string url = $"/manga/{uuid}/feed";
+            string url = $"/manga/{uuid}/feed?limit={limit}&offset={offset}";
             var response = await httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)

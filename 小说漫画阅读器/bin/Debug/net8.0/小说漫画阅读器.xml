@@ -27,7 +27,7 @@
             <param name="uuid">漫画的uuid</param>
             <returns></returns>
         </member>
-        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterInfoById(System.String)">
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetChapterInfoById(System.String,System.Int32,System.Int32)">
             <summary>
             根据uuid来查找对应的所有章节信息，里面有最基本各个的章节id,volume是卷，chapter是章
             </summary>
@@ -53,6 +53,18 @@
             终极版全能搜索，满足条件搜索
             </summary>
             <param name="option">一个条件参数的对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:小说漫画阅读器.Controllers.MangadexController.GetMangaById(System.String,System.Int32,System.Int32)">
+            <summary>
+            由于传入uuid得到的不是漫画，而是实体，所以会缺少数据或者格式不匹配
+            但是可以拿到其他的信息，比如漫画的title
+            所以根据title模糊匹配判断所有的数据的uuid是否跟传入的uuid一样
+            若一样，则已经拿到，不需要再请求
+            </summary>
+            <param name="uuid"></param>
+            <param name="limit"></param>
+            <param name="offset"></param>
             <returns></returns>
         </member>
         <member name="M:小说漫画阅读器.Controllers.UsersLoveController.GetUsersLove(System.Int32)">

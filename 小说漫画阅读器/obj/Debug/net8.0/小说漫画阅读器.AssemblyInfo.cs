@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("小说漫画阅读器")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f973511b82012a0c37e7b644a84aa6b26c2d4595")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+75e0914970ddf2e69b425c7896a5a55049ce334e")]
 [assembly: System.Reflection.AssemblyProductAttribute("小说漫画阅读器")]
 [assembly: System.Reflection.AssemblyTitleAttribute("小说漫画阅读器")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

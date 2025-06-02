@@ -242,6 +242,22 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -489,12 +505,32 @@
         "tags": [
           "Mangadex"
         ],
+        "summary": "由于传入uuid得到的不是漫画，而是实体，所以会缺少数据或者格式不匹配\r\n但是可以拿到其他的信息，比如漫画的title\r\n所以根据title模糊匹配判断所有的数据的uuid是否跟传入的uuid一样\r\n若一样，则已经拿到，不需要再请求",
         "parameters": [
           {
             "name": "uuid",
             "in": "query",
+            "description": "",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -780,6 +816,21 @@
             "items": {
               "$ref": "#/components/schemas/ChapterData"
             },
+            "nullable": true
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },
