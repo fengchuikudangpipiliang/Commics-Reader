@@ -214,6 +214,7 @@ namespace 小说漫画阅读器.Controllers
         /// <param name="option">一个条件参数的对象</param>
         /// <returns></returns>
         [HttpGet]
+
         public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaByOptions([FromQuery] MangaSearchQuery option)
         {
             var baseUrl = "https://api.mangadex.org/manga";
@@ -266,6 +267,33 @@ namespace 小说漫画阅读器.Controllers
             MangaSearchQuery query = new MangaSearchQuery() { Title=data1,Limit=1};
             return  await GetMangaByOptions(query);
            
+        }
+        /// <summary>
+        /// 由于传入uuid得到的不是漫画，而是实体，所以会缺少数据或者格式不匹配
+        /// 但是可以拿到其他的信息，比如漫画的title
+        /// 所以根据title模糊匹配判断所有的数据的uuid是否跟传入的uuid一样
+        /// 若一样，则已经拿到，不需要再请求
+        /// </summary>
+        /// <param name="uuid"></param>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [ResponseCache(Duration = 20, VaryByQueryKeys = new[] { "uuid","limit","offset" })]
+        public async Task<ActionResult<MangaSearchTitleResponse>> GetMangaById([FromQuery] string uuid, [FromQuery]int limit, [FromQuery]int offset)
+        {
+            string baseUrl1 = $"https://api.mangadex.org/manga/{uuid}?includes[]=cover_art&includes[]=author&includes[]=artist";
+            var response = await httpClient.GetAsync(baseUrl1);
+            if (!response.IsSuccessStatusCode)
+            {
+                return StatusCode((int)response.StatusCode, "获取失败");
+            }
+            var json1 = await response.Content.ReadAsStringAsync();
+            JsonDocument json = JsonDocument.Parse(json1);
+
+            var data1 = json.RootElement.GetProperty("data").GetProperty("attributes").GetProperty("title").GetProperty("en").GetString();
+            MangaSearchQuery query = new MangaSearchQuery() { Title = data1 ,Limit=limit,Offset=offset};
+            return await GetMangaByOptions(query);
         }
     }
     public class MangaSearchQuery

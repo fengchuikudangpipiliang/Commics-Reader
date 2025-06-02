@@ -484,6 +484,44 @@
         }
       }
     },
+    "/api/Mangadex/GetMangaById": {
+      "get": {
+        "tags": [
+          "Mangadex"
+        ],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MangaSearchTitleResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Test/Get": {
       "get": {
         "tags": [

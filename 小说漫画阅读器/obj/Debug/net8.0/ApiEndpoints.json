@@ -211,6 +211,32 @@
   },
   {
     "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.MangadexController",
+    "Method": "GetMangaById",
+    "RelativePath": "api/Mangadex/GetMangaById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "uuid",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.JsonClass.MangaSearchTitleResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "\u5C0F\u8BF4\u6F2B\u753B\u9605\u8BFB\u5668.Controllers.MangadexController",
     "Method": "GetMangaByOptions",
     "RelativePath": "api/Mangadex/GetMangaByOptions",
     "HttpMethod": "GET",
