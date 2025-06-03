@@ -1,0 +1,27 @@
+ content rating
+safe	Safe content
+suggestive	Suggestive content
+erotica	Erotica content
+pornographic	Pornographic content
+
+originnalLan   AvailableTranslatedLanguages
+zh	Simplified Chinese
+zh-hk	Traditional Chinese
+pt-br	Brazilian Portugese
+es	Castilian Spanish
+es-la	Latin American Spanish
+ja-ro	Romanized Japanese
+ko-ro	Romanized Korean
+zh-ro	Romanized Chinese
+
+status
+ongoing	Manga is still going on
+completed	Manga is completed
+hiatus	Manga is paused
+cancelled	Manga has been cancelled
+
+order
+createdAt,asc
+createdAt,desc
+updatedAt,asc
+updatedAt,desc
