@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Live2D Widget Demo</title>
+    <script src="https://unpkg.com/live2d-widget@3.x/lib/L2Dwidget.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      L2Dwidget.init({
+        model: {
+          //萌娘
+          // jsonPath:
+          //   "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
+          //小可爱(女)
+          jsonPath:
+            "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+          //海军小哥
+          // jsonPath:
+          //   "https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json",
+          //大眼妹
+          // jsonPath:
+          //   "https://unpkg.com/live2d-widget-model-unitychan@1.0.5/assets/unitychan.model.json",
+          //碗中鼠
+          // jsonPath:
+          //   "https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json",
+        },
+        display: {
+          position: "right",
+          width: 150,
+          height: 175,
+          hOffset: 0,
+          vOffset: 20,
+        },
+        mobile: { show: true, scale: 1 },
+        react: { opacityDefault: 0.9, opacityOnHover: 1 },
+      });
+    </script>
+  </body>
+</html>
