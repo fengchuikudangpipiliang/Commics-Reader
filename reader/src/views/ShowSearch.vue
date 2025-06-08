@@ -140,10 +140,11 @@ function goToComic(id: string) {
   max-width: 1320px;
   margin: 20px auto;
   padding: 0 18px;
+  background: transparent;
 }
 .manga-card {
-  width: 180px;
-  background: #232c43;
+  /* background-color: #1f2635; */
+  background-color: transparent;
   border-radius: 12px;
   padding: 12px;
   color: #fff;

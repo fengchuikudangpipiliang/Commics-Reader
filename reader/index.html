@@ -7,7 +7,12 @@
     <title>Vite App</title>
   </head>
   <body>
+    <script src="https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.0-rc.4/dist/autoload.js"></script>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <div id="waifu-chat-box" style="position: fixed; bottom: 120px; right: 80px; background: #fff; padding: 8px; z-index: 9999; border-radius: 6px; display: none;">
+      <input id="waifu-chat-input" type="text" placeholder="输入点什么..." style="width: 160px;" />
+      <button onclick="waifuSendMsg()">发送</button>
+    </div>
   </body>
 </html>

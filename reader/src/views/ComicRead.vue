@@ -46,7 +46,7 @@
               :command="lang"
               :disabled="lang === selectedLanguage"
             >
-              {{ lang.toUpperCase() }}（{{ chapterCountByLang[lang] }} 章）
+              {{ getChineseLanguageName(lang) }}（{{ chapterCountByLang[lang] }} 章）
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -58,13 +58,31 @@
         </button>
         <template #dropdown>
           <el-dropdown-menu>
+            <div class="chapter-pagination">
+              <el-button
+                size="small"
+                :disabled="offset === 0"
+                @click="loadPreviousChapters"
+                class="pagination-btn"
+              >
+                <i class="el-icon-arrow-left"></i>上一页
+              </el-button>
+              <!-- <span class="page-info"
+                >{{ offset / limit + 1 }} / {{ Math.ceil(total / limit) }}</span
+              > -->
+              <el-button size="small" :disabled="!hasMore" @click="loadMore" class="pagination-btn">
+                下一页<i class="el-icon-arrow-right"></i>
+              </el-button>
+            </div>
             <el-dropdown-item
               v-for="(ch, idx) in filteredChapters"
               :key="ch.id"
               :command="ch.id"
               :disabled="ch.id === selectedChapterId"
             >
-              第{{ idx + 1 }}章（{{ ch.attributes.translatedLanguage.toUpperCase() }}）
+              第{{ ch.displayIndex }}章（{{
+                getChineseLanguageName(ch.attributes.translatedLanguage)
+              }}）
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -103,9 +121,15 @@ const availableLanguages = computed(() => {
   return [...new Set(langs)]
 })
 
-const filteredChapters = computed(() =>
-  chapterList.value.filter((ch) => ch.attributes.translatedLanguage === selectedLanguage.value),
-)
+const filteredChapters = computed(() => {
+  const chapters = chapterList.value.filter(
+    (ch) => ch.attributes.translatedLanguage === selectedLanguage.value,
+  )
+  return chapters.map((ch, idx) => ({
+    ...ch,
+    displayIndex: offset.value * limit + idx + 1,
+  }))
+})
 
 const limit = 20
 const offset = ref(0)
@@ -122,6 +146,30 @@ const chapterCountByLang = computed(() => {
   })
   return countMap
 })
+
+// Function to get Chinese language name from code
+const getChineseLanguageName = (langCode: string) => {
+  const languageMap: { [key: string]: string } = {
+    en: '英语',
+    zh: '中文',
+    'zh-hk': '繁体中文',
+    'pt-br': '葡萄牙语',
+    es: '西班牙语',
+    'es-la': '西班牙语',
+    'ja-ro': '罗马字日语',
+    'ko-ro': '罗马字韩语',
+    'zh-ro': '罗马字中文',
+    it: '意大利语',
+    id: '印度尼西亚语 (印尼语)',
+    tr: '土耳其语',
+    vi: '越南语',
+    de: '德语',
+    fr: '法语',
+    HI: '印地语',
+    // Add more language mappings as needed
+  }
+  return languageMap[langCode.toLowerCase()] || langCode.toUpperCase()
+}
 
 const fetchChapters = async () => {
   try {
@@ -143,8 +191,8 @@ const fetchChapters = async () => {
       return
     }
 
-    // 追加新章节
-    chapterList.value.push(...data)
+    // 替换章节列表，而不是追加
+    chapterList.value = data
 
     // 可选：第一次加载时设置语言
     if (offset.value === 0) {
@@ -172,6 +220,13 @@ const fetchChapters = async () => {
 const loadMore = () => {
   if (hasMore.value) {
     offset.value++
+    fetchChapters()
+  }
+}
+
+const loadPreviousChapters = () => {
+  if (offset.value > 0) {
+    offset.value--
     fetchChapters()
   }
 }
@@ -269,16 +324,34 @@ const fetchChapterImages = () => {
 const handleScroll = () => {
   if (!scrollContainer.value || loading.value) return
   const el = scrollContainer.value
-  const nearBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 100
+  const nearBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 100 // 留100px阈值
 
   if (nearBottom) {
-    // 还没显示完就追加，但最多一次 BATCH_SIZE
-    const next = images.value.slice(
+    // 还没显示完当前章节所有图片就追加
+    const nextBatch = images.value.slice(
       visibleImages.value.length,
       visibleImages.value.length + BATCH_SIZE,
     )
-    if (next.length) {
-      visibleImages.value.push(...next)
+    if (nextBatch.length) {
+      visibleImages.value.push(...nextBatch)
+    } else {
+      // 当前章节所有图片都已显示
+      // 检查是否有下一章节
+      const currentChapterIndex = filteredChapters.value.findIndex(
+        (ch) => ch.id === selectedChapterId.value,
+      )
+      const nextChapterIndex = currentChapterIndex + 1
+
+      if (nextChapterIndex < filteredChapters.value.length) {
+        // 有下一章节，加载下一章节
+        const nextChapter = filteredChapters.value[nextChapterIndex]
+        selectedChapterId.value = nextChapter.id
+        onChapterChange() // 调用加载章节的函数
+        ElMessage.info(`正在加载下一章节: 第${nextChapter.displayIndex}章`)
+      } else {
+        // 没有下一章节了
+        ElMessage.info('已经是最后一章节了')
+      }
     }
   }
 }
@@ -375,5 +448,27 @@ onMounted(async () => {
   font-size: 1.2rem;
   text-align: center;
   margin-top: 100px;
+}
+.chapter-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #dcdfe6;
+  margin-bottom: 8px;
+}
+
+.pagination-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.page-info {
+  font-size: 12px;
+  color: #606266;
+}
+
+:deep(.el-dropdown-menu) {
+  min-width: 200px;
 }
 </style>

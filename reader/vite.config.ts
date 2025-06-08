@@ -11,11 +11,14 @@ export default defineConfig({
     },
   },
   server: {
+    host: true, // ✅ 监听 0.0.0.0，确保外部（如 ngrok）可以访问
+    allowedHosts: ['.ngrok-free.app'], // ✅ 允许 ngrok 的 host 访问
+
     proxy: {
       '/api': {
-        target: 'https://localhost:7274',
+        target: 'http://localhost:7274',
         changeOrigin: true,
-        secure: false, // ❗ 自签名 HTTPS 证书必须设为 false
+        secure: false, // ✅ 自签名证书需设为 false
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },

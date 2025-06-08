@@ -93,100 +93,100 @@ const excludedTagsSummary = computed(() => {
 })
 
 const languageOptions = [
-  { value: 'zh', label: 'Simplified Chinese' },
-  { value: 'zh-hk', label: 'Traditional Chinese' },
-  { value: 'pt-br', label: 'Brazilian Portugese' },
-  { value: 'es', label: 'Castilian Spanish' },
-  { value: 'es-la', label: 'Latin American Spanish' },
-  { value: 'ja-ro', label: 'Romanized Japanese' },
-  { value: 'ko-ro', label: 'Romanized Korean' },
-  { value: 'zh-ro', label: 'Romanized Chinese' },
+  { value: 'zh', label: '简体中文' },
+  { value: 'zh-hk', label: '繁体中文' },
+  { value: 'pt-br', label: '巴西葡萄牙语' },
+  { value: 'es', label: '西班牙语' },
+  { value: 'es-la', label: '拉丁美洲西班牙语' },
+  { value: 'ja-ro', label: '罗马化日语' },
+  { value: 'ko-ro', label: '罗马化韩语' },
+  { value: 'zh-ro', label: '罗马化中文' },
 ]
-const contentRatingOptions = ['safe', 'suggest', 'erotica', 'porngraphic']
-const statusOptions = ['ongoing', 'completed', 'hiatus', 'cancelled']
+const contentRatingOptions = ['安全', '建议', '情色', '色情']
+const statusOptions = ['连载中', '已完结', '暂停', '已取消']
 const orderOptions = [
-  { value: 'createdAt,asc', label: 'Created At Asc' },
-  { value: 'createdAt,desc', label: 'Created At Desc' },
-  { value: 'updatedAt,asc', label: 'Updated At Asc' },
-  { value: 'updatedAt,desc', label: 'Updated At Desc' },
+  { value: 'createdAt,asc', label: '创建时间升序' },
+  { value: 'createdAt,desc', label: '创建时间降序' },
+  { value: 'updatedAt,asc', label: '更新时间升序' },
+  { value: 'updatedAt,desc', label: '更新时间降序' },
 ]
 const tagOptions = [
-  'Oneshot',
-  'Thriller',
-  'Award Winning',
-  'Reincarnation',
-  'Sci-Fi',
-  'Time Travel',
-  'Genderswap',
-  'Loli',
-  'Traditional Games',
-  'Official Colored',
-  'Historical',
-  'Monsters',
-  'Action',
-  'Demons',
-  'Psychological',
-  'Ghosts',
-  'Animals',
-  'Long Strip',
-  'Romance',
-  'Ninja',
-  'Comedy',
-  'Mecha',
-  'Anthology',
-  "Boys' Love",
-  'Incest',
-  'Crime',
-  'Survival',
-  'Zombies',
-  'Reverse Harem',
-  'Sports',
-  'Superhero',
-  'Martial Arts',
-  'Fan Colored',
-  'Samurai',
-  'Magical Girls',
-  'Mafia',
-  'Adventure',
-  'Self-Published',
-  'Virtual Reality',
-  'Office Workers',
-  'Video Games',
-  'Post-Apocalyptic',
-  'Sexual Violence',
-  'Crossdressing',
-  'Magic',
-  "Girls' Love",
-  'Harem',
-  'Military',
-  'Wuxia',
-  'Isekai',
-  '4-Koma',
-  'Doujinshi',
-  'Philosophical',
-  'Gore',
-  'Drama',
-  'Medical',
-  'School Life',
-  'Horror',
-  'Fantasy',
-  'Villainess',
-  'Vampires',
-  'Delinquents',
-  'Monster Girls',
-  'Shota',
-  'Police',
-  'Web Comic',
-  'Slice of Life',
-  'Aliens',
-  'Cooking',
-  'Supernatural',
-  'Mystery',
-  'Adaptation',
-  'Music',
-  'Full Color',
-  'Tragedy',
-  'Gyaru',
+  '单篇',
+  '惊悚',
+  '获奖作品',
+  '转生',
+  '科幻',
+  '时间旅行',
+  '性别转换',
+  '萝莉',
+  '传统游戏',
+  '官方彩色',
+  '历史',
+  '怪物',
+  '动作',
+  '恶魔',
+  '心理',
+  '幽灵',
+  '动物',
+  '长条漫画',
+  '恋爱',
+  '忍者',
+  '喜剧',
+  '机甲',
+  '选集',
+  '耽美',
+  '近亲',
+  '犯罪',
+  '生存',
+  '僵尸',
+  '逆后宫',
+  '运动',
+  '超级英雄',
+  '武术',
+  '粉丝上色',
+  '武士',
+  '魔法少女',
+  '黑帮',
+  '冒险',
+  '自出版',
+  '虚拟现实',
+  '上班族',
+  '电子游戏',
+  '后启示录',
+  '性暴力',
+  '女装',
+  '魔法',
+  '百合',
+  '后宫',
+  '军事',
+  '武侠',
+  '异世界',
+  '四格漫画',
+  '同人志',
+  '哲学',
+  '血腥',
+  '戏剧',
+  '医疗',
+  '校园生活',
+  '恐怖',
+  '奇幻',
+  '恶役',
+  '吸血鬼',
+  '不良少年',
+  '魔物娘',
+  '正太',
+  '警察',
+  '网络漫画',
+  '日常',
+  '外星人',
+  '料理',
+  '超自然',
+  '悬疑',
+  '改编',
+  '音乐',
+  '全彩',
+  '悲剧',
+  '辣妹',
 ]
 
 function toggleTag(tag: string, type: 'included' | 'excluded') {
@@ -205,18 +205,18 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
   <div class="fliter-page">
     <div class="filter-grid">
       <div class="filter-item">
-        <label class="filter-label">Title</label>
-        <el-input v-model="filters.title" placeholder="Title" class="filter-input" />
+        <label class="filter-label">标题</label>
+        <el-input v-model="filters.title" placeholder="请输入标题" class="filter-input" />
       </div>
 
       <div class="filter-item">
-        <label class="filter-label">Original Language</label>
+        <label class="filter-label">原始语言</label>
         <el-select
           v-model="filters.originalLanguage"
           multiple
           filterable
           clearable
-          placeholder="Any"
+          placeholder="任意"
           class="filter-select"
         >
           <el-option
@@ -229,13 +229,13 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
       </div>
 
       <div class="filter-item">
-        <label class="filter-label">Translated Languages</label>
+        <label class="filter-label">翻译语言</label>
         <el-select
           v-model="filters.translatedLanguages"
           multiple
           filterable
           clearable
-          placeholder="Any"
+          placeholder="任意"
           class="filter-select"
         >
           <el-option
@@ -248,13 +248,13 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
       </div>
 
       <div class="filter-item">
-        <label class="filter-label">Status</label>
+        <label class="filter-label">状态</label>
         <el-select
           v-model="filters.status"
           multiple
           filterable
           clearable
-          placeholder="Any"
+          placeholder="任意"
           class="filter-select"
         >
           <el-option v-for="item in statusOptions" :key="item" :label="item" :value="item" />
@@ -262,13 +262,13 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
       </div>
 
       <div class="filter-item">
-        <label class="filter-label">Content Rating</label>
+        <label class="filter-label">内容评级</label>
         <el-select
           v-model="filters.contentRating"
           multiple
           filterable
           clearable
-          placeholder="Any"
+          placeholder="任意"
           class="filter-select"
         >
           <el-option v-for="item in contentRatingOptions" :key="item" :label="item" :value="item" />
@@ -276,12 +276,12 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
       </div>
 
       <div class="filter-item">
-        <label class="filter-label">Order</label>
+        <label class="filter-label">排序方式</label>
         <el-select
           v-model="filters.order"
           filterable
           clearable
-          placeholder="None"
+          placeholder="无"
           class="filter-select"
         >
           <el-option
@@ -294,13 +294,13 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
       </div>
 
       <div class="filter-item">
-        <label class="filter-label">Publication Year</label>
-        <el-input v-model="filters.year" placeholder="Any" class="filter-input" />
+        <label class="filter-label">出版年份</label>
+        <el-input v-model="filters.year" placeholder="任意" class="filter-input" />
       </div>
 
       <div class="filter-item filter-item-tags">
         <label class="filter-label"
-          >Included Tags
+          >包含标签
           {{ filters.includedTags.length > 0 ? `+${filters.includedTags.length}` : '' }}</label
         >
         <el-popover
@@ -317,12 +317,12 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
                   : includedTagsSummary
               }}
               <span v-if="includedTagsSummary === 'Include Tags'" class="placeholder-text"
-                >Any</span
+                >任意</span
               >
             </div>
           </template>
           <div class="tag-selection-content">
-            <h4>Include Tags</h4>
+            <h4>已包含的标签</h4>
             <el-scrollbar max-height="200px">
               <div class="tag-list-grid">
                 <el-tag
@@ -344,7 +344,7 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
 
       <div class="filter-item filter-item-tags">
         <label class="filter-label"
-          >Excluded Tags
+          >排除标签
           {{ filters.excludedTags.length > 0 ? `+${filters.excludedTags.length}` : '' }}</label
         >
         <el-popover
@@ -361,12 +361,12 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
                   : excludedTagsSummary
               }}
               <span v-if="excludedTagsSummary === 'Exclude Tags'" class="placeholder-text"
-                >Any</span
+                >任意</span
               >
             </div>
           </template>
           <div class="tag-selection-content">
-            <h4>Exclude Tags</h4>
+            <h4>排除标签</h4>
             <el-scrollbar max-height="200px">
               <div class="tag-list-grid">
                 <el-tag
@@ -388,9 +388,7 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
 
       <div class="filter-item">
         <label class="filter-label">&nbsp;</label>
-        <el-button class="filter-search-btn" type="primary" @click="onSearchClick"
-          >Search</el-button
-        >
+        <el-button class="filter-search-btn" type="primary" @click="onSearchClick">搜索</el-button>
       </div>
     </div>
   </div>
@@ -408,12 +406,31 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
 
 .fliter-page {
   padding: 32px 18px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a2035 0%, #2d3748 100%);
+  position: relative;
+  overflow: hidden;
 }
+
+.fliter-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>')
+    repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
 .manga-list {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
 }
+
 .manga-card {
   width: 180px;
   background: #232c43;
@@ -424,7 +441,16 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
   flex-direction: column;
   align-items: center;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.13);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
+.manga-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .cover-img {
   width: 100%;
   height: 240px;
@@ -433,6 +459,7 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
   margin-bottom: 10px;
   background: #222;
 }
+
 .title {
   font-size: 1.08rem;
   font-weight: 600;
@@ -440,103 +467,190 @@ function toggleTag(tag: string, type: 'included' | 'excluded') {
   margin-top: 6px;
   color: #c7cfe6;
 }
+
 .filter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px 20px;
-  background: #1a2035;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(26, 32, 53, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
+
 .filter-item {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
+
 .filter-label {
-  color: #c7cfe6;
+  color: #e2e8f0;
   font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
+
 .filter-input,
 .filter-select,
 .filter-tag-trigger-text {
   width: 100%;
-  height: 38px;
-  background: #eef1f4;
-  border: 1px solid #dcdfe6;
-  border-radius: 4px;
-  color: #606266;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #2d3748;
   font-size: 14px;
   box-sizing: border-box;
   padding: 0 12px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .filter-tag-trigger-text .placeholder-text {
   color: #a8abb2;
 }
+
 .filter-input:hover,
 .filter-select:hover,
 .filter-tag-trigger-text:hover {
-  border-color: #c0c4cc;
+  border-color: #4a5568;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .filter-input:focus-within,
 .filter-select:focus-within,
 .filter-tag-trigger-text:focus {
-  border-color: #409eff;
-  box-shadow: 0 0 0 1px #409eff;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
   outline: none;
 }
+
 .filter-item .filter-search-btn {
   width: 100%;
-  height: 38px;
+  height: 42px;
   margin-left: 0;
-  background: #2563eb;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 14px;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
 }
+
 .filter-item .filter-search-btn:hover {
-  background: #1a47a1;
+  background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(66, 153, 225, 0.3);
 }
+
+.filter-item .filter-search-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.2);
+}
+
+.filter-item .filter-search-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.filter-item .filter-search-btn:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+.tag-selection-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+}
+
 .tag-selection-content h4 {
   margin-top: 0;
-  margin-bottom: 10px;
-  color: #303133;
-  font-size: 1rem;
+  margin-bottom: 16px;
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
+
 .tag-list-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 8px;
+  gap: 10px;
 }
+
 .tag-item {
   cursor: pointer;
-  transition:
-    background-color 0.2s,
-    border-color 0.2s;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  padding: 8px 12px;
 }
+
 .tag-item:hover {
-  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 :deep(.el-scrollbar__wrap) {
   margin-right: -10px !important;
 }
+
 :deep(.el-popover) {
   background-color: #fff !important;
-  color: #303133 !important;
-  border-color: #dcdfe6 !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
+  color: #2d3748 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+}
+
+:deep(.el-select-dropdown__item) {
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+:deep(.el-select-dropdown__item:hover) {
+  background-color: #ebf8ff;
+}
+
+:deep(.el-select-dropdown__item.selected) {
+  background-color: #4299e1;
+  color: #fff;
 }
 </style>

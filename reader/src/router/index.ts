@@ -12,9 +12,15 @@ import Fliter from '@/views/Fliter.vue'
 import ComicRead from '@/views/ComicRead.vue'
 import ShowFilter from '@/views/ShowFilter.vue'
 import ShowSearch from '@/views/ShowSearch.vue'
+import LandingPage from '@/views/LandingPage.vue'
 import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs'
 //第二步，创建路由器
 const routes = [
+  {
+    path: '/',
+    name: 'LandingPage',
+    component: LandingPage,
+  },
   {
     path: '/home',
     name: 'Home',

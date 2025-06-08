@@ -17,7 +17,7 @@
           <div class="status">{{ comic.status }}</div>
           <h1 class="title">{{ comic.title }}</h1>
           <div class="btn-row">
-            <el-button type="primary" size="large" @click="StartReading">START READING</el-button>
+            <el-button type="primary" size="large" @click="StartReading">开始阅读</el-button>
             <el-button size="large" plain @click="handleFavoriteClick">
               {{ isFavorited ? '取消收藏' : '收藏' }}
               <el-icon><i class="el-icon-collection"></i></el-icon>
@@ -64,6 +64,21 @@ const comicId = ref(route.params.id as string) // 获取路由中的 comicId
 // 新增评分相关响应式变量
 const rating = ref(0)
 const raters = ref(0)
+
+// 检查漫画是否已收藏
+const checkFavoriteStatus = async () => {
+  if (!userStore.userId) return
+
+  try {
+    const res = await axios.get('/api/UsersLove/GetUsersLove', {
+      params: { id: userStore.userId },
+    })
+    const favoriteList = res.data
+    isFavorited.value = favoriteList.includes(comicId.value)
+  } catch (error) {
+    console.error('获取收藏状态失败：', error)
+  }
+}
 
 // 处理开始阅读按钮点击
 const StartReading = () => {
@@ -153,6 +168,8 @@ onMounted(async () => {
 
       // 获取评分信息
       await fetchRating(data.id)
+      // 检查收藏状态
+      await checkFavoriteStatus()
     } else {
       console.error('未找到漫画数据:', comicId.value)
     }

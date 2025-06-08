@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container" >
+  <div class="home-container">
     <div class="swiper-wrap">
       <swiper
         :modules="[Navigation]"
@@ -31,11 +31,11 @@
     <!-- Most Viewed Section -->
     <div class="most-viewed-section">
       <div class="most-viewed-header">
-        <h2 class="most-viewed-title">Most Viewed</h2>
+        <h2 class="most-viewed-title">最多观看</h2>
         <div class="most-viewed-tabs">
-          <span class="tab active">Day</span>
-          <span class="tab">Week</span>
-          <span class="tab">Month</span>
+          <span class="tab active">今日</span>
+          <span class="tab">本周</span>
+          <span class="tab">本月</span>
         </div>
       </div>
       <div class="most-viewed-list">
@@ -50,7 +50,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
@@ -96,42 +95,58 @@ const comics = [
     tags: ['Action', 'Shounen', 'Supernatural'],
   },
   {
-    id:'a2c1d849-af05-4bbc-b2a7-866ebb10331f',
-    status:'ongoing',
-    title:'One Piece (Official Colored)',
-    desc:'Gol D. Roger, a man referred to as the "Pirate King," is set to be executed by the World Government...',
-    cover:'https://uploads.mangadex.org/covers/a2c1d849-af05-4bbc-b2a7-866ebb10331f/da0341d8-5526-452c-8bd3-dc8e3cd89f99.jpg',
+    id: 'a2c1d849-af05-4bbc-b2a7-866ebb10331f',
+    status: 'ongoing',
+    title: 'One Piece (Official Colored)',
+    desc: 'Gol D. Roger, a man referred to as the "Pirate King," is set to be executed by the World Government...',
+    cover:
+      'https://uploads.mangadex.org/covers/a2c1d849-af05-4bbc-b2a7-866ebb10331f/da0341d8-5526-452c-8bd3-dc8e3cd89f99.jpg',
     tags: ['Action', 'Shounen', 'Supernatural'],
-  }
+  },
 ]
 
 const mostViewed = [
-  { id: 'a1c7c817-4e59-43b7-9365-09675a149a6f', title: 'One Piece', cover: 'https://uploads.mangadex.org/covers/a1c7c817-4e59-43b7-9365-09675a149a6f/249fa95b-2214-4ae3-a8f7-77338fe34542.png' },
-  { id: 'bluelock', title: 'Blue Lock', cover: 'https://uploads.mangadex.org/covers/4141c5dc-c525-4df5-afd7-cc7d192a832f/a11a788a-400f-4df0-8b35-2f17123ab879.jpg' },
+  {
+    id: 'a1c7c817-4e59-43b7-9365-09675a149a6f',
+    title: 'One Piece',
+    cover:
+      'https://uploads.mangadex.org/covers/a1c7c817-4e59-43b7-9365-09675a149a6f/249fa95b-2214-4ae3-a8f7-77338fe34542.png',
+  },
+  {
+    id: 'bluelock',
+    title: 'Blue Lock',
+    cover:
+      'https://uploads.mangadex.org/covers/4141c5dc-c525-4df5-afd7-cc7d192a832f/a11a788a-400f-4df0-8b35-2f17123ab879.jpg',
+  },
   {
     id: 'chainsawman',
     title: 'Chainsaw Man',
-    cover: 'https://uploads.mangadex.org/covers/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b/bf31b6c3-9075-4c1e-95be-b6a38ffed10f.jpg',
+    cover:
+      'https://uploads.mangadex.org/covers/a77742b1-befd-49a4-bff5-1ad4e6b0ef7b/bf31b6c3-9075-4c1e-95be-b6a38ffed10f.jpg',
   },
   {
     id: 'fragrant',
     title: 'The Fragrant Flower Blooms With Dignity',
-    cover: 'https://uploads.mangadex.org/covers/418791c0-35cf-4f87-936b-acd9cddf0989/e248ccb3-e923-4523-b795-bdd26bba66f8.jpg',
+    cover:
+      'https://uploads.mangadex.org/covers/418791c0-35cf-4f87-936b-acd9cddf0989/e248ccb3-e923-4523-b795-bdd26bba66f8.jpg',
   },
   {
     id: 'gachiakuta',
     title: 'Gachiakuta',
-    cover: 'https://uploads.mangadex.org/covers/192aa767-2479-42c1-9780-8d65a2efd36a/20fd574a-5c79-4077-ad73-576080251ca8.jpg',
+    cover:
+      'https://uploads.mangadex.org/covers/192aa767-2479-42c1-9780-8d65a2efd36a/20fd574a-5c79-4077-ad73-576080251ca8.jpg',
   },
   {
     id: 'sakamoto',
     title: 'Sakamoto Days',
-    cover: 'https://uploads.mangadex.org/covers/9d9b04ad-9a83-49f4-8ae4-a9a3780fe9c0/9b0dd6a1-8021-4182-a191-1c87027647a9.jpg',
+    cover:
+      'https://uploads.mangadex.org/covers/9d9b04ad-9a83-49f4-8ae4-a9a3780fe9c0/9b0dd6a1-8021-4182-a191-1c87027647a9.jpg',
   },
   {
     id: '98b0d83a-f3c8-4677-ab9e-1a3576654b8f',
     title: 'Record of Ragnarok',
-    cover: 'https://uploads.mangadex.org/covers/98b0d83a-f3c8-4677-ab9e-1a3576654b8f/3730fe81-548f-462f-b994-c17e7f42b5d0.jpg',
+    cover:
+      'https://uploads.mangadex.org/covers/98b0d83a-f3c8-4677-ab9e-1a3576654b8f/3730fe81-548f-462f-b994-c17e7f42b5d0.jpg',
   },
 ]
 
@@ -148,6 +163,10 @@ function goToDetail(id: string) {
   box-sizing: border-box;
 }
 
+.home-container::before {
+  content: none;
+}
+
 .swiper-wrap {
   width: 100%;
   margin: 0 auto 38px auto;
@@ -156,6 +175,8 @@ function goToDetail(id: string) {
   border-radius: 22px;
   box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.1);
   padding: 24px 0 24px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .custom-swiper {
@@ -168,7 +189,9 @@ function goToDetail(id: string) {
 .carousel-card {
   width: 100%;
   margin: 0;
-  background: linear-gradient(135deg, #232c43 60%, #253144 100%);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 16px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.13);
   display: flex;
@@ -182,6 +205,12 @@ function goToDetail(id: string) {
   transition:
     transform 0.22s cubic-bezier(0.4, 2, 0.6, 1),
     box-shadow 0.22s;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.carousel-card::before {
+  content: none;
 }
 
 .carousel-card:hover {
